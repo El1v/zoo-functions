@@ -7,7 +7,7 @@ function getEmployeeByName(employeeName) {
     (curr.firstName === employeeName || curr.lastName === employeeName ? curr : acc), {});
 }
 
-console.log(getEmployeeByName('Elser'));
-console.log(getEmployeeByName());
+// console.log(getEmployeeByName('Elser'));
+// console.log(getEmployeeByName());
 
 module.exports = getEmployeeByName;
