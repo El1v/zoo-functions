@@ -29,4 +29,19 @@ describe('Testes da função getOpeningHours', () => {
     const expected = 'The zoo is closed';
     expect(actual).toEqual(expected);
   });
+  it('Ao receber Wednesday e 09:00-GM como parametro deve lancar um erro', () => {
+    expect(() => getOpeningHours('Wednesday', '09:00-GM')).toThrow('The abbreviation must be \'AM\' or \'PM\'');
+  });
+  it('Ao receber Friday e 13:00-PM como parametro deve lancar um erro', () => {
+    expect(() => getOpeningHours('Friday', '13:00-PM')).toThrow('The hour must be between 0 and 12');
+  });
+  it('Ao receber Friday e 12:61-PM como parametro deve lancar um erro', () => {
+    expect(() => getOpeningHours('Friday', '12:61-PM')).toThrow('The minutes must be between 0 and 59');
+  });
+  it('Ao receber Wed e 12:00-AM como parametro deve lancar um erro', () => {
+    expect(() => getOpeningHours('Wec', '12:00-AM')).toThrow('The day must be valid. Example: Monday');
+  });
+  it('Ao receber Tuesday e 1X:00-AM como parametro deve lancar um erro', () => {
+    expect(() => getOpeningHours('Tuesday', '1X:00-AM')).toThrow('The hour should represent a number');
+  });
 });
