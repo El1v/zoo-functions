@@ -30,8 +30,8 @@ function getSchedule(scheduleTarget) {
   }
   if (scheduleTarget === undefined || !animals.includes(scheduleTarget)) {
     days.reduce((acc, curr) => {
-      // console.log(scheduleDay);
       scheduleDay[curr] = weekDays(curr);
+      return scheduleDay;
     }, {});
     return scheduleDay;
   }
